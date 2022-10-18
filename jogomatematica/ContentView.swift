@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var offset = CGSize.zero
-    @State private var dragOffSet = CGSize.zero
+//    @State private var offset = CGSize.zero
+//    @State private var dragOffSet = CGSize.zero
+    @State private var rectPosition = CGPoint(x: 50, y: 650)
+    @State private var isEnded = false
     @State var scale: CGFloat = 1
+    
     var body: some View {
         VStack{
             Spacer()
@@ -18,22 +21,27 @@ struct ContentView: View {
                 .resizable()
                 .padding()
                 .frame(width: 164.71, height: 100.0)
-                
                 .scaledToFit()
-                .offset(x: offset.width + dragOffSet.width)
+//                .offset(x: offset.width + dragOffSet.width)
+                .position(rectPosition)
                 .gesture(
                     DragGesture()
                         .onChanged{ value in
-                            self.dragOffSet = value.translation
+                            self.rectPosition = CGPoint(x: value.location.x, y: 650)
                         }
-                        .onEnded{_ in
-                            self.offset.width += self.dragOffSet.width
-                            self.dragOffSet = .zero
+                        .onEnded{ value in
+                            self.isEnded = value.location.x < 120
                         }
                     
                 )
         }
         .padding()
+    }
+    
+    func screenBounds() -> CGFloat {
+        let max = UIScreen.main.bounds.width
+//        let currentBound = abs(offset.width)
+        return  max
     }
 }
 
