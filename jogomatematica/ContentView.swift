@@ -1,11 +1,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    //    @State private var offset = CGSize.zero
-    //    @State private var dragOffSet = CGSize.zero
-    @State private var rectPosition = CGPoint(x: 50, y: 500)
-    @State private var isEnded = false
-    @State var scale: CGFloat = 1
+        @State private var offset = CGSize.zero
+        @State private var dragOffSet = CGSize.zero
+    private var caranguejoSize = CGSize(width: UIScreen.main.bounds.width*0.4, height: UIScreen.main.bounds.height*0.2)
     
     func apertouBotao(){
         print("apertou botao")
@@ -38,20 +36,27 @@ struct ContentView: View {
                         }
                     }
                 }
-                
+                Spacer()
                 Image("crab")
                     .resizable()
                     .frame(width: 164.71, height: 100.0)
-                    .scaledToFit()
-                //                .offset(x: offset.width + dragOffSet.width)
-                    .position(rectPosition)
+                    .offset(x: offset.width + dragOffSet.width)
+//                    .animation(.easeInOut, value: 100)
                     .gesture(
                         DragGesture()
                             .onChanged{ value in
-                                self.rectPosition = CGPoint(x: value.location.x, y: 500)
+                                withAnimation(.easeIn){
+                                    if(abs(self.offset.width+value.translation.width) + caranguejoSize.width/2 < UIScreen.main.bounds.width/2){
+                                        self.dragOffSet.width = value.translation.width
+                                    }
+                                }
+                                
                             }
                             .onEnded{ value in
-                                self.isEnded = value.location.x < 120
+                                withAnimation(.easeIn){
+                                    self.offset.width += self.dragOffSet.width
+                                    self.dragOffSet = .zero
+                                }
                             }
                     )
             }
