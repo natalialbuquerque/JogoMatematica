@@ -4,10 +4,11 @@ struct playButton: View {
     @Binding var position: CGSize
     var body: some View {
         Button("Playbutton") {
-            
         }
     }
 }
+
+
 struct ContentView: View {
         @State private var dropping = -470
     
@@ -21,13 +22,22 @@ struct ContentView: View {
     func apertouBotao(){
     }
     
+    func collision(dragOffSet: CGSize) {
+        if (abs(self.offset.width+dragOffSet.width) == offSetFim.width) {
+            print("acertou a bolha")
+        } else {
+            print("não acertou a bolha")
+        }
+    }
+    
+    
     var body: some View {
         ZStack {
             Image("BlueBrackground")
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
             
-            Image("bubble")
+            Image("bubble 2")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 50)
@@ -35,6 +45,7 @@ struct ContentView: View {
                 .animation(.easeIn(duration: 3).repeatForever(autoreverses: false))
                 .onAppear() {
                     dropping = 440
+
                 }
             
                 
@@ -65,7 +76,7 @@ struct ContentView: View {
                 }
                
                 Spacer()
-                Image("crab")
+                Image("crab 1")
                     .resizable()
                     .frame(width: 164.71, height: 100.0)
                     .offset(x: offset.width + dragOffSet.width)
@@ -77,6 +88,7 @@ struct ContentView: View {
                                     if(abs(self.offset.width+value.translation.width) + caranguejoSize.width/2 < UIScreen.main.bounds.width/2){
                                         self.dragOffSet.width = value.translation.width
                                     }
+            
                                 }
                                 
                             }
