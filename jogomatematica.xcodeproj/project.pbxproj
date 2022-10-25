@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6480CC96290822A400A1565A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6480CC95290822A400A1565A /* HomeView.swift */; };
 		EC25D48428FEC2EC00C86052 /* jogomatematicaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC25D48328FEC2EC00C86052 /* jogomatematicaApp.swift */; };
 		EC25D48628FEC2EC00C86052 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC25D48528FEC2EC00C86052 /* ContentView.swift */; };
 		EC25D48828FEC2EE00C86052 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC25D48728FEC2EE00C86052 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6480CC95290822A400A1565A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EC25D48028FEC2EC00C86052 /* jogomatematica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jogomatematica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC25D48328FEC2EC00C86052 /* jogomatematicaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jogomatematicaApp.swift; sourceTree = "<group>"; };
 		EC25D48528FEC2EC00C86052 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 			children = (
 				EC25D48328FEC2EC00C86052 /* jogomatematicaApp.swift */,
 				EC25D48528FEC2EC00C86052 /* ContentView.swift */,
+				6480CC95290822A400A1565A /* HomeView.swift */,
 				EC25D48728FEC2EE00C86052 /* Assets.xcassets */,
 				EC25D48928FEC2EE00C86052 /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6480CC96290822A400A1565A /* HomeView.swift in Sources */,
 				EC25D48628FEC2EC00C86052 /* ContentView.swift in Sources */,
 				EC25D48428FEC2EC00C86052 /* jogomatematicaApp.swift in Sources */,
 			);
